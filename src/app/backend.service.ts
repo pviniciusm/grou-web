@@ -8,7 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class BackendService {
 
-  private backendUrl: string = 'http://localhost:3333/api';
+  private backendUrl: string = 'https://grourriculum.herokuapp.com/api';
 
   constructor(
     private http: HttpClient) { }
