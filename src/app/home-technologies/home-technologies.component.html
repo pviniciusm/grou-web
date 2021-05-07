@@ -1,0 +1,21 @@
+<div id="technologies" class="flex flex-column">
+  <h2>Linguagens e tecnologias</h2>
+  <div class="flex flew-row">
+    <div class="tech-card" *ngFor="let tech of techList">
+      <img [src]="tech.imgUri" [alt]="tech.name">
+      <p>{{tech.name}}</p>
+    </div>
+    <!-- <div class="tech-card">
+      <img src="../assets/img/javascript.png" alt="JavaScript">
+      <p>C#</p>
+    </div>
+    <div class="tech-card">
+      <img src="../assets/img/javascript.png" alt="JavaScript">
+      <p>Python</p>
+    </div>
+    <div class="tech-card">
+      <img src="../assets/img/javascript.png" alt="JavaScript">
+      <p>teste</p>
+    </div> -->
+  </div>
+</div>

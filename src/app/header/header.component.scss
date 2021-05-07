@@ -1,0 +1,36 @@
+@import '../../colors.scss';
+
+
+/* Header */
+#main-header {
+  padding: 0 10px;
+  background-color: $gunmetal;
+  color: $white;
+
+}
+
+#navbar-links {
+  justify-content: flex-end !important;
+}
+
+.navbar-brand p {
+  padding: 0 !important;
+  margin: 0 !important;
+
+  color: $white !important;
+  font-family: 'Quicksand', sans-serif !important;
+}
+
+.nav-link {
+  font-family: 'Quicksand', sans-serif !important;
+  color: $white !important;
+  cursor: pointer;
+}
+
+#navbar-name {
+  font-size: 16px;
+}
+
+#navbar-description {
+  font-size: 11px;
+}

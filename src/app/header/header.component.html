@@ -1,0 +1,29 @@
+<header class="container-fluid" id="main-header">
+  <nav class="navbar navbar-expand-md navbar-dark main">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/" routerLinkActive="true">
+        <p id="navbar-name">Paulo Cardoso</p>
+        <p id="navbar-description">Grourriculum</p>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-links">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" (click)="routeToDiv('education')">Experiências</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="routeToDiv('technologies')">Tecnologias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="routeToDiv('comments')">Comentários</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contato" routerLinkActive="true">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

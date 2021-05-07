@@ -1,0 +1,22 @@
+<div class="flex flex-row">
+  <div class="carousel-wrapper">
+    <ngu-carousel #myCarousel id="carousel" [inputs]="carouselTile" [dataSource]="comentarios">
+      <div *nguCarouselDef="let item;" class="carouselTile item">
+        <div class="comment">
+          <p class="comment-text"><span>"</span>{{item.content}}</p>
+          <p class="comment-author">{{item.name}}</p>
+          <p class="comment-relation">{{item.relation}}</p>
+        </div>
+      </div>
+
+      <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 1:1"></button>
+      <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 1:1"></button>
+
+      <ul id="dotButtons" class="myPoint" NguCarouselPoint>
+        <li *ngFor="let j of myCarousel.pointNumbers; let x = index" [class.active]="x==myCarousel.activePoint" (click)="myCarousel.moveTo(x)">
+          <div></div>
+        </li>
+      </ul>
+    </ngu-carousel>
+  </div>
+</div>

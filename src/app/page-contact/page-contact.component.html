@@ -1,0 +1,46 @@
+<div id="contact" class="flex flex-column">
+
+    <div class="contact-title">
+      <h1>Entre em contato!</h1>
+      <h2>Informe nome e e-mail e se minha agenda permitir, quem sabe, talvez, haja uma remota possibilidade que eu visualize... a menos que seja para combinar um chopp!</h2>
+    </div>
+
+    <div class="flex flex-row">
+      <div id="contact-image">
+        <img src="../assets/img/webdev.svg" alt="Send me a positive comment!">
+      </div>
+      <div id="contact-form-wrapper" class="flex flex-column">
+        
+        <div class="comment-form flex flex-column">
+          <label for="formName">Nome</label>
+          <input id="formName" type="text" placeholder="Digite seu nome" [(ngModel)]="formName">
+  
+          <label for="formEmail">Email</label>
+          <input id="formEmail" type="text" placeholder="seu@email.com" [(ngModel)]="formEmail">
+  
+          <label for="comment-form-text">Observações</label>
+          <textarea name="comment-form-text" id="comment-form-text" cols="30" rows="3" [(ngModel)]="formComment"></textarea>
+  
+          <button ([class])="btnDisabled ? 'loading' : ''"  id="sendCommentButton" (click)="clickContact()">
+            <div id="commentSpinner" class="spinner-border text-primary" role="status">
+              <span class="visually-hidden"></span>
+            </div>
+            <span>
+              {{ txtEnviar }}
+            </span>
+          </button>
+        </div>
+      </div>
+  
+      <ng-template #content let-modal>
+        <div class="modal-body">
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4>Feitooo!</h4>
+          <p>Obrigado pelo seu feedback! ;)</p>
+        </div>
+      </ng-template>
+    </div>
+
+</div>

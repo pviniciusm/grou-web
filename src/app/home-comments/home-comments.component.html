@@ -1,0 +1,72 @@
+<div id="comments" class="flex flex-column" style="margin-bottom: 240px;">
+  <h1>Comentários</h1>
+  <div class="flex flex-row">
+
+    <div class="carousel-wrapper" #carouselWrapper id="carrWrap" >
+      <ngu-carousel #myCarousel id="carousel" [inputs]="carouselTile" [dataSource]="comentarios">
+        <div *nguCarouselDef="let item;" class="carouselTile item">
+          <div class="comment">
+            <p class="comment-text"><span>"</span>{{item.content}}</p>
+            <p class="comment-author">{{item.name}}</p>
+            <p class="comment-relation">{{item.relation}}</p>
+          </div>
+        </div>
+
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 1:1"></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 1:1"></button>
+
+        <ul id="dotButtons" class="myPoint" NguCarouselPoint>
+          <li *ngFor="let j of myCarousel.pointNumbers; let x = index" [class.active]="x==myCarousel.activePoint" (click)="myCarousel.moveTo(x)">
+            <div></div>
+          </li>
+        </ul>
+      </ngu-carousel>
+    </div>
+
+    <div class="flex flex-row comment-loading" *ngIf="loading">
+      <div id="carouselSpinner" class="spinner-border text-primary" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+      <p>Carregando comentários...</p>
+    </div>
+  </div>
+
+  <div id="sendComment" class="flex flex-row">
+    <div id="send-comment-image">
+      <img src="../assets/img/opinions.svg" alt="Send me a positive comment!">
+    </div>
+    <div id="send-comment-form-wrapper" class="flex flex-column">
+      <h1>Deixe um comentário!</h1>
+      <h2>Desde que não seja ruim ;)</h2>
+      <div class="comment-form flex flex-column">
+        <label for="formName">Nome</label>
+        <input id="formName" type="text" placeholder="Digite seu nome" [(ngModel)]="formName">
+
+        <label for="formRelation">Relação</label>
+        <input id="formRelation" type="text" required placeholder="De onde você me conhece?" minlength="2" [(ngModel)]="formRelation">
+
+        <label for="comment-form-text">Comentário</label>
+        <textarea name="comment-form-text" id="comment-form-text" cols="30" rows="3" [(ngModel)]="formComment"></textarea>
+
+        <button ([class])="btnDisabled ? 'loading' : ''"  id="sendCommentButton" (click)="clickComment()">
+          <div id="commentSpinner" class="spinner-border text-primary" role="status">
+            <span class="visually-hidden"></span>
+          </div>
+          <span>
+            {{txtEnviar}}
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <ng-template #content let-modal>
+      <div class="modal-body">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4>Feitooo!</h4>
+        <p>Obrigado pelo seu feedback! ;)</p>
+      </div>
+    </ng-template>
+  </div>
+</div>
