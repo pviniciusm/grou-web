@@ -2,7 +2,7 @@
 
     <div class="contact-title">
       <h1>Entre em contato!</h1>
-      <h2>Informe nome e e-mail e se minha agenda permitir, quem sabe, talvez, haja uma remota possibilidade que eu visualize... a menos que seja para combinar um chopp!</h2>
+      <h2>Informe nome, e-mail e telefone, se minha agenda permitir, quem sabe, talvez, haja uma remota possibilidade que eu visualize... a menos que seja para combinar um chopp!</h2>
     </div>
 
     <div class="flex flex-row">
@@ -17,6 +17,9 @@
   
           <label for="formEmail">Email</label>
           <input id="formEmail" type="text" placeholder="seu@email.com" [(ngModel)]="formEmail">
+
+          <label for="formPhone">Telefone</label>
+          <input id="formPhone" type="text" placeholder="(55) 99999-9999" [(ngModel)]="formPhone">
   
           <label for="comment-form-text">Observações</label>
           <textarea name="comment-form-text" id="comment-form-text" cols="30" rows="3" [(ngModel)]="formComment"></textarea>

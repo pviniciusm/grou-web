@@ -16,6 +16,7 @@ export class PageContactComponent implements OnInit, DoCheck {
   formName = '';
   formEmail = '';
   formComment = '';
+  formPhone = '';
 
   txtEnviar = 'Enviar';
   @ViewChild('content') content: NgbdModalContent;
@@ -45,15 +46,17 @@ export class PageContactComponent implements OnInit, DoCheck {
       this.alternativeOpen('Atenção', 'Preencha um e-mail.');
       return;
     }
-
-    // this.txtEnviar = 'Enviando...'
-    // this.btnDisabled = !this.btnDisabled;
+    if(!this.formPhone) {
+      this.alternativeOpen('Atenção', 'Preencha seu telefone.');
+      return;
+    }
 
     this.toggleButton();
 
     let campos = {
       name: this.formName,
       email: this.formEmail,
+      phone: this.formPhone,
       content: this.formComment
     };
 
@@ -63,7 +66,6 @@ export class PageContactComponent implements OnInit, DoCheck {
       if(!returned.ok) {
         this.alternativeOpen('Opa meu a-migo', returned.message || '');
         this.toggleButton();
-        //this.btnDisabled = false;
         return;
       }
 
@@ -71,10 +73,10 @@ export class PageContactComponent implements OnInit, DoCheck {
 
       this.formComment = '';
       this.formName = '';
+      this.formPhone = '';
       this.formEmail = '';
 
        this.toggleButton();
-//      this.btnDisabled = false;
     }).catch(err => {
       this.alternativeOpen('Opa meu consagrado...', 'Parece que a solicitação não rolou OK, reveja seus preenchimentos e/ou tente novamente mais tarde.');
       this.toggleButton();
